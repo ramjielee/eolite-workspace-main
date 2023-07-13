@@ -1,0 +1,209 @@
+{
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"eom-host-app": {
+			"projectType": "application",
+			"schematics": {},
+			"root": "projects/eom-host-app",
+			"sourceRoot": "projects/eom-host-app/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/eom-host-app",
+						"index": "projects/eom-host-app/src/index.html",
+						"main": "projects/eom-host-app/src/main.ts",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/eom-host-app/tsconfig.app.json",
+						"assets": [
+							"projects/eom-host-app/src/favicon.ico",
+							"projects/eom-host-app/src/assets"
+						],
+						"styles": [
+							"projects/eom-host-app/src/styles.css"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/eom-host-app/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/eom-host-app/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "eom-host-app:build:production",
+							"extraWebpackConfig": "projects/eom-host-app/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "eom-host-app:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4200,
+						"publicHost": "http://localhost:4200",
+						"extraWebpackConfig": "projects/eom-host-app/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "eom-host-app:build",
+						"extraWebpackConfig": "projects/eom-host-app/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/eom-host-app/tsconfig.spec.json",
+						"assets": [
+							"projects/eom-host-app/src/favicon.ico",
+							"projects/eom-host-app/src/assets"
+						],
+						"styles": [
+							"projects/eom-host-app/src/styles.css"
+						],
+						"scripts": []
+					}
+				}
+			}
+		},
+		"eom-title-remote-app": {
+			"projectType": "application",
+			"schematics": {},
+			"root": "projects/eom-title-remote-app",
+			"sourceRoot": "projects/eom-title-remote-app/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/eom-title-remote-app",
+						"index": "projects/eom-title-remote-app/src/index.html",
+						"main": "projects/eom-title-remote-app/src/main.ts",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/eom-title-remote-app/tsconfig.app.json",
+						"assets": [
+							"projects/eom-title-remote-app/src/favicon.ico",
+							"projects/eom-title-remote-app/src/assets"
+						],
+						"styles": [
+							"projects/eom-title-remote-app/src/styles.css"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/eom-title-remote-app/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/eom-title-remote-app/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "eom-title-remote-app:build:production",
+							"extraWebpackConfig": "projects/eom-title-remote-app/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "eom-title-remote-app:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4300,
+						"publicHost": "http://localhost:4300",
+						"extraWebpackConfig": "projects/eom-title-remote-app/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "eom-title-remote-app:build",
+						"extraWebpackConfig": "projects/eom-title-remote-app/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/eom-title-remote-app/tsconfig.spec.json",
+						"assets": [
+							"projects/eom-title-remote-app/src/favicon.ico",
+							"projects/eom-title-remote-app/src/assets"
+						],
+						"styles": [
+							"projects/eom-title-remote-app/src/styles.css"
+						],
+						"scripts": []
+					}
+				}
+			}
+		}
+	}
+}
